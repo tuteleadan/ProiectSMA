@@ -6,11 +6,15 @@ import ro.poli.sma.proiectsma.Exceptions.NicknameAlreadyUsed;
 
 public class FirebaseInterface {
 
-    public void register(){
+    public void register(PlayerInfo crtPlayerInfo){
 
     }
 
     public void setNickname(String nickname) throws NicknameAlreadyUsed{
+
+    }
+
+    public void login(PlayerInfo crtPlayerInfo){
 
     }
 
