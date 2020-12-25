@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775763559203",
+    "project_id": "proiectsma-ta",
+    "storage_bucket": "proiectsma-ta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775763559203:android:12126f9b5edfd511c50296",
+        "android_client_info": {
+          "package_name": "ro.poli.sma.proiectsma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775763559203-r0a94faje1gfar877m9bu28dsp3vljug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYR8wCbRG-zbF_A14Ley75yYilFoOuRRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775763559203-r0a94faje1gfar877m9bu28dsp3vljug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
