@@ -13,12 +13,12 @@ import java.util.List;
 import ro.poli.sma.proiectsma.Exceptions.NicknameAlreadyUsed;
 
 public class FirebaseInterface {
-    private DatabaseReference dbRef;
-    private DatabaseReference thisRef;
-    private PlayerInfo crtPlayerData = null;
-    private boolean isReady = false;
+    private static DatabaseReference dbRef;
+    private static DatabaseReference thisRef;
+    private static PlayerInfo crtPlayerData = null;
+    private static boolean isReady = false;
 
-    public void init(String crtUsr){
+    public static void init(String crtUsr){
         dbRef = FirebaseDatabase.getInstance().getReference().child("users");
         thisRef = dbRef.child(crtUsr);
         if(thisRef == null){
@@ -28,30 +28,30 @@ public class FirebaseInterface {
             login();
     }
 
-    public void register(String playerUsr){
+    public static void register(String playerUsr){
         dbRef.setValue(playerUsr);
         thisRef = dbRef.child(playerUsr);
         thisRef.setValue(new PlayerInfo());
         crtPlayerData = new PlayerInfo();
     }
 
-    public void setNickname(String nickname){
+    public static void setNickname(String nickname){
         thisRef.child("nickname").setValue(nickname);
         crtPlayerData.nickname = nickname;
     }
 
-    private void setInfo(PlayerInfo pi){
+    private static void setInfo(PlayerInfo pi){
         crtPlayerData = pi;
         isReady = (crtPlayerData!=null);
     }
 
-    public PlayerInfo getInfo() throws Exception{
+    public static PlayerInfo getInfo() throws Exception{
         if(crtPlayerData == null)
             throw new Exception("not yet ready");
         return crtPlayerData;
     }
 
-    public void login(){
+    public static void login(){
         ValueEventListener tmp = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -69,7 +69,7 @@ public class FirebaseInterface {
         thisRef.addListenerForSingleValueEvent(tmp);
     }
 
-    public void putScore(float newScore){
+    public static void putScore(float newScore){
         if(newScore > crtPlayerData.bestScore){
             crtPlayerData.bestScore = newScore;
         }
@@ -78,7 +78,7 @@ public class FirebaseInterface {
         thisRef.setValue(crtPlayerData);
     }
 
-    public List<Score> getTop(){
+    public static List<Score> getTop(){
         return null;
     }
 }

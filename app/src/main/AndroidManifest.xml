@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProiectSMA">
         <activity
+            android:name=".pages.PersonalPage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_personal_page"
+            android:theme="@style/Theme.ProiectSMA.Fullscreen"></activity>
+        <activity
             android:name=".pages.MainMenu"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_main_menu"

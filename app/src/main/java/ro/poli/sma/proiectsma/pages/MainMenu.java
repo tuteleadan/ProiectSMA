@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import ro.poli.sma.proiectsma.FirebaseInterface;
 import ro.poli.sma.proiectsma.R;
 
 /**
@@ -28,28 +29,8 @@ public class MainMenu extends AppCompatActivity {
 
         setContentView(R.layout.activity_main_menu);
 
-        // Set up the user interaction to manually show or hide the system UI.
+        FirebaseInterface.init("alex");
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
-        delayedHide(100);
-    }
-
-    /**
-     * Schedules a call to hide() in delay milliseconds, canceling any
-     * previously scheduled calls.
-     */
-    private void delayedHide(int delayMillis) {
     }
 
     public void onPlayClick(android.view.View view){
@@ -58,8 +39,8 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void onStatsClick(android.view.View view){
-//        Intent tmp = new Intent(this, PlayActivity.class);
-//        startActivity(tmp);
+        Intent tmp = new Intent(this, PersonalPage.class);
+        startActivity(tmp);
     }
 
     public void onTopClick(android.view.View view){
