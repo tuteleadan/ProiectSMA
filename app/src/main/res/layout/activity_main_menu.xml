@@ -1,51 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
+    android:background="#E91E63"
+    android:backgroundTint="#2196F3"
+    android:backgroundTintMode="add"
     android:theme="@style/ThemeOverlay.ProiectSMA.FullscreenContainer"
-    tools:context=".playerStats.MainMenu">
+    tools:context=".pages.MainMenu">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="?attr/fullscreenTextColor"
-        android:textSize="50sp"
-        android:textStyle="bold" />
 
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.ProiectSMA.ButtonBar.Fullscreen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <EditText
+                android:id="@+id/appNameTB"
+                android:layout_width="match_parent"
+                android:layout_height="121dp"
+                android:backgroundTintMode="add"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Minesweeper"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:translationY="20dp" />
+
+            <LinearLayout
+                android:layout_width="317dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:orientation="vertical"
+                android:translationX="50dp"
+                android:translationY="70dp">
+
+                <Button
+                    android:id="@+id/playButton"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="#3F51B5"
+                    android:backgroundTint="#00BCD4"
+                    android:onClick="onPlayClick"
+                    android:text="Play"
+                    android:translationY="30dp" />
+
+                <Button
+                    android:id="@+id/personalInfoButton"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="#3F51B5"
+                    android:backgroundTint="#00BCD4"
+                    android:onClick="onStatsClick"
+                    android:text="View Stats"
+                    android:translationY="70dp" />
+
+                <Button
+                    android:id="@+id/topButton"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="#3F51B5"
+                    android:backgroundTint="#00BCD4"
+                    android:onClick="onTopClick"
+                    android:text="View top players"
+                    android:translationY="120dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
-    </FrameLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

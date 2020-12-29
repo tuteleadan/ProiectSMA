@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProiectSMA">
         <activity
-            android:name=".playerStats.MainMenu"
+            android:name=".pages.MainMenu"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_main_menu"
-            android:theme="@style/Theme.ProiectSMA.Fullscreen"></activity>
+            android:theme="@style/Theme.ProiectSMA.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
