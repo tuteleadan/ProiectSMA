@@ -65,9 +65,11 @@
                     android:contextClickable="true"
                     android:cursorVisible="true"
                     android:defaultFocusHighlightEnabled="true"
+                    android:editable="true"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="@string/nicknameStringCorespondent" />
+                    android:text="@string/nicknameStringCorespondent"
+                    android:textIsSelectable="true" />
             </LinearLayout>
 
             <LinearLayout
@@ -122,7 +124,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/BestscroeTextbox"
+                    android:id="@+id/bestscoreTextbox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

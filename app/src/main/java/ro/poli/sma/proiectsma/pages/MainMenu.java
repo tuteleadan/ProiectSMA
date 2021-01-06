@@ -29,7 +29,7 @@ public class MainMenu extends AppCompatActivity {
 
         setContentView(R.layout.activity_main_menu);
 
-        FirebaseInterface.init("alex");
+
 
     }
 
