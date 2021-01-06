@@ -29,9 +29,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void onPlayClick(android.view.View view){
-//        Intent tmp = new Intent(this, PlayActivity.class);
-//        tmp.putExtra("USER_FB_ID", "USR1");
-//        startActivity(tmp);
+        Intent tmp = new Intent(this, GameActivity.class);
+        tmp.putExtra("USER_FB_ID", user_id);
+        startActivity(tmp);
     }
 
     public void onStatsClick(android.view.View view){

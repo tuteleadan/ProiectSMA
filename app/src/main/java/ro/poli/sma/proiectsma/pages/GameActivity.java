@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import ro.poli.sma.proiectsma.Game;
 import ro.poli.sma.proiectsma.R;
 import ro.poli.sma.proiectsma.components.Bars;
@@ -32,7 +35,12 @@ public class GameActivity extends Activity {
         ref.tv = (TextView) findViewById(R.id.mine_no);
         ref.timer= (Chronometer) findViewById(R.id.timp);
 
-        Game.getInstance().createBoardGrid(this, ref);
+        String uid = getIntent().getStringExtra("USER_FB_ID");
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+
+        Game g = Game.getInstance();
+        g.setDb(dbRef.child("users").child(uid));
+        g.createBoardGrid(this, ref);
     }
 
     @Override

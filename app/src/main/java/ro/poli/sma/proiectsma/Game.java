@@ -6,6 +6,13 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 import java.time.Duration;
 
 import ro.poli.sma.proiectsma.components.GameStarter;
@@ -28,6 +35,10 @@ public class Game {
     private Square[][] board = new Square[WIDTH][HEIGHT];
 
     private Game(){ }
+
+    private DatabaseReference dbRef;
+
+    public void setDb(DatabaseReference dbf){this.dbRef = dbf;}
 
     public static Game getInstance() {
         if( instance == null ){
@@ -91,6 +102,23 @@ public class Game {
         Toast.makeText(context,"Game lost", Toast.LENGTH_SHORT).show();
         stare=2;
         ref.timer.stop();
+
+        ValueEventListener tmp = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                PlayerInfo pi = snapshot.getValue(PlayerInfo.class);
+                pi.gamesPlayed++;
+                pi.avgScore = pi.avgScore*(pi.gamesPlayed-1)/pi.gamesPlayed;
+                dbRef.setValue(pi);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        };
+
+        dbRef.addListenerForSingleValueEvent(tmp);
+
         for ( int x = 0 ; x < WIDTH ; x++ ) {
             for (int y = 0; y < HEIGHT; y++) {
                 if(board[x][y].getVal()==-1)
@@ -116,6 +144,27 @@ public class Game {
             timer=(SystemClock.elapsedRealtime()-ref.timer.getBase())/1000;
 
             ref.timer.stop();
+
+            ValueEventListener tmp = new ValueEventListener() {
+
+                private final long ttimer = timer;
+
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    PlayerInfo pi = snapshot.getValue(PlayerInfo.class);
+                    pi.gamesPlayed++;
+                    pi.avgScore = (pi.avgScore*(pi.gamesPlayed-1)+ttimer)/pi.gamesPlayed;
+                    if(pi.bestScore>ttimer || pi.bestScore==0)
+                        pi.bestScore = ttimer;
+                    dbRef.setValue(pi);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            };
+
+            dbRef.addListenerForSingleValueEvent(tmp);
 
         }
 
