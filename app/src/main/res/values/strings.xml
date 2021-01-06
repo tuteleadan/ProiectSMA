@@ -17,4 +17,5 @@
     <string name="gamesPlayedStringCorespondent">...</string>
     <string name="bestscoreStringCorespondent">...</string>
     <string name="averagescoreStringCorespondent">...</string>
+    <string name="title_activity_game">FullscreenActivity</string>
 </resources>
