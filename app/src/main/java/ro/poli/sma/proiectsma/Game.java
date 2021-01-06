@@ -195,10 +195,4 @@ public class Game {
         checkEnd();
     }
 
-    void show(Context context){
-        TextView tv=new TextView(context);
-        TextView tx = tv.findViewById(R.id.mine_no);
-        tx.setText(" 10 ");
-    }
-
 }
