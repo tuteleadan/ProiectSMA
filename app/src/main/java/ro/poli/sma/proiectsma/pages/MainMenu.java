@@ -1,18 +1,11 @@
 package ro.poli.sma.proiectsma.pages;
 
-import android.annotation.SuppressLint;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 
-import ro.poli.sma.proiectsma.FirebaseInterface;
 import ro.poli.sma.proiectsma.R;
 
 /**
@@ -35,11 +28,13 @@ public class MainMenu extends AppCompatActivity {
 
     public void onPlayClick(android.view.View view){
 //        Intent tmp = new Intent(this, PlayActivity.class);
+//        tmp.putExtra("USER_FB_ID", "USR1");
 //        startActivity(tmp);
     }
 
     public void onStatsClick(android.view.View view){
         Intent tmp = new Intent(this, PersonalPage.class);
+        tmp.putExtra("USER_FB_ID", "USR1");
         startActivity(tmp);
     }
 
