@@ -1,19 +1,11 @@
 package ro.poli.sma.proiectsma.pages;
 
-import android.annotation.SuppressLint;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.UserManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +14,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import ro.poli.sma.proiectsma.FirebaseInterface;
 import ro.poli.sma.proiectsma.PlayerInfo;
 import ro.poli.sma.proiectsma.R;
 
@@ -67,7 +58,7 @@ public class PersonalPage extends AppCompatActivity {
             }
         };
 
-        String crtUser = "usr1";
+        String crtUser = getIntent().getStringExtra("USER_FB_ID");
 
         dbRef.child("users").child(crtUser).addListenerForSingleValueEvent(tmp);
 
