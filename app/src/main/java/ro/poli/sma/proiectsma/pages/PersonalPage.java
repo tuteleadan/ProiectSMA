@@ -59,6 +59,7 @@ public class PersonalPage extends AppCompatActivity {
         };
 
         String crtUser = getIntent().getStringExtra("USER_FB_ID");
+        System.out.println("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss " + crtUser);
 
         dbRef.child("users").child(crtUser).addListenerForSingleValueEvent(tmp);
 

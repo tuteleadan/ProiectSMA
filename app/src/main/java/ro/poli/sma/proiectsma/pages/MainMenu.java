@@ -16,13 +16,15 @@ public class MainMenu extends AppCompatActivity {
 
     private Button playB, seeStatsButton;
 
+    private String user_id = "usr1";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_menu);
 
-
+        //login with play. if not registered then register, else retrive user id
 
     }
 
@@ -34,7 +36,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void onStatsClick(android.view.View view){
         Intent tmp = new Intent(this, PersonalPage.class);
-        tmp.putExtra("USER_FB_ID", "USR1");
+        tmp = tmp.putExtra("USER_FB_ID", user_id);
         startActivity(tmp);
     }
 
