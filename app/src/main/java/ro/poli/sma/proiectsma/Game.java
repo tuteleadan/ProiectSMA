@@ -108,7 +108,7 @@ public class Game {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 PlayerInfo pi = snapshot.getValue(PlayerInfo.class);
                 pi.gamesPlayed++;
-                pi.avgScore = pi.avgScore*(pi.gamesPlayed-1)/pi.gamesPlayed;
+                pi.avgScore = 2f*pi.avgScore*(pi.gamesPlayed-1)/pi.gamesPlayed;
                 dbRef.setValue(pi);
             }
 
