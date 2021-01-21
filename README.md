@@ -1,3 +1,3 @@
 # ProiectSMA
 
-The firebase projecdt does not exist anymore
+The firebase project does not exist anymore
